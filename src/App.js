@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState}from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -30,7 +30,7 @@ const productsArr = [
 function App() {
   return (
     <Container fluid>
-      <Head></Head>
+      <Head ></Head>
       <Row className="justify-content-center">
         {productsArr.map((product, index) => (
           <Col md={3} className="mb-4" key={index}>

@@ -1,56 +1,81 @@
-import React from "react";
-import { Navbar, Container, Button} from "react-bootstrap";
-// let Register = () => {
-//   return (
-//     <>
-//       <Container className="mt-3">
-//         <Row>
-//           <Col xs={3}>
-//             <Card>
-//               <Card.Header
-//                 className="p-3"
-//                 style={{ backgroundColor: "lightblue" }}
-//               >
-//                 <h4>Register</h4>
-//               </Card.Header>
-//               <Card.Body>
-//                 <Form>
-//                     <Form.Group className="mb-3">
-//                     <Form.Control type="text" placeholder="Username"></Form.Control>
-//                     </Form.Group>
-//                     <Form.Group className="mb-3">
-//                     <Form.Control type="email" placeholder="Email"></Form.Control>
-//                     </Form.Group>
-//                     <Form.Group className="mb-3">
-//                     <Form.Control type="password" placeholder="Password"></Form.Control>
-//                     </Form.Group>
-//                     <Form.Group className="mb-3">
-//                     <Button variant="success" type="submit">Submit</Button>
-//                     </Form.Group>
-//                 </Form>
-//               </Card.Body>
-//             </Card>
-//           </Col>
-//         </Row>
-//       </Container>
-//     </>
-//   );
-// };
-// export default Register;
-let Head=()=>{
-return(<>
-<Navbar bg="dark" variant="dark" expand="lg" style={{position : "fixed",zIndex:"1",marginTop:"0",width:"98.4%"}}>
-<Container fluid>
-<Navbar.Brand href="/">Home</Navbar.Brand>
-<Navbar.Brand href="/">Store</Navbar.Brand>
-<Navbar.Brand href="/">About</Navbar.Brand>
-<Button style={{float : "right"}}>Cart[0]</Button>
-</Container>
-</Navbar>
-<Container fluid style={{textAlign : "center",backgroundColor:"lightgray",paddingTop : '5rem',paddingBottom:'5rem'}}>
-    <h1>THE GENERICS</h1>
-</Container>
-</>)
-}
+import React, { useState } from 'react';
+import { Navbar, Container, Button } from 'react-bootstrap';
+import Cart from '../Cart/Cart';
+const Cartitems=[
+    {
+  
+        title: 'Colors',
+        
+        price: 100,
+        
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        
+        quantity: 2,
+        
+        },
+        
+        {
+        
+        title: 'Black and white Colors',
+        
+        price: 50,
+        
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+        
+        quantity: 3,
+        
+        },
+        
+        {
+        
+        title: 'Yellow and Black Colors',
+        
+        price: 70,
+        
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+        
+        quantity: 1,
+        
+        }
+  ];
+const Head = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false); // State to control cart visibility
+ // State to manage cart items
+  const [cart,setCart] = useState(Cartitems);
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+//   const addToCart = (product) => {
+//     setCart([...cart, product]);
+//   };
+
+  const removeFromCart = (index) => {
+    const updatedCart = cart.filter((_, i) => i !== index);
+    setCart(updatedCart);
+  };
+
+  return (
+    <>
+      <Navbar bg="dark" variant="dark" expand="lg" style={{ position: 'fixed', zIndex: '1', marginTop : '0px' ,width: '98.4%' }}>
+        <Container fluid>
+          <Navbar.Brand href="/">Home</Navbar.Brand>
+          <Navbar.Brand href="/">Store</Navbar.Brand>
+          <Navbar.Brand href="/">About</Navbar.Brand>
+          {/* Display the cart elements when the Cart button is clicked */}
+          <Button style={{ float: 'right' }} onClick={toggleCart}>Cart[{cart.length}]</Button>
+        </Container>
+      </Navbar>
+      {/* Display the cart when isCartOpen is true */}
+      {isCartOpen && <Cart cartItems={cart} onRemove={removeFromCart} />}
+      <Container fluid style={{ textAlign: 'center', backgroundColor: 'lightgray', paddingTop: '5rem', paddingBottom: '5rem' }}>
+        <h1>THE GENERICS</h1>
+      </Container>
+    </>
+  );
+};
+
 export default Head;
+
+
 
