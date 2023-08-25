@@ -1,8 +1,9 @@
-import React,{useState}from 'react';
+import React,{useContext}from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Head from './components/Header';
+import CartContext from './store/CartProvider';
 
 const productsArr = [
   {
@@ -26,8 +27,13 @@ const productsArr = [
     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
   },
 ];
-
 function App() {
+  const ctx=useContext(CartContext);
+ // Inside the App.js component
+ const addToCart = (product) => {
+    ctx.addtocart(product);
+};
+
   return (
     <Container fluid>
       <Head ></Head>
@@ -39,7 +45,7 @@ function App() {
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>Price: ${product.price}</Card.Text>
-                <Button variant="primary">Add to Cart</Button>
+                <Button variant="primary" onClick={()=>{addToCart(product)}}>Add to Cart</Button>
               </Card.Body>
             </Card>
           </Col>
