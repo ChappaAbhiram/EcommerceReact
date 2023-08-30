@@ -4,9 +4,8 @@ import CartContext from '../store/CartProvider';
 
 const Cart = (props) => {
   const ctx = React.useContext(CartContext);
-
   return (
-    <div style={{ position: 'fixed', zIndex: 3, right: '20px', top: '60px', overflowY: 'auto', maxHeight: '80vh', backgroundColor: 'white' }}>
+     <div style={{ position: 'fixed', zIndex: 100, right: '20px', top: '60px', overflowY: 'auto', maxHeight: '80vh', backgroundColor: 'white' }}>
       {props.cartItems.length > 0 && (
         <div>
           <h4>CART</h4>
@@ -42,5 +41,4 @@ const Cart = (props) => {
     </div>
   );
 };
-
 export default Cart;

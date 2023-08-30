@@ -1,1 +1,22 @@
+/* Global Styles */
 
+/* ... (other styles) */
+/* .generics-container {
+  margin-top: 20px; /* Adjust as needed 
+  padding: 20px;
+  text-align: center;
+  background-color: lightgray;
+} */
+.generics-container {
+  margin-top: 100px; 
+  padding: 5rem 0;
+  background-color: lightgray;
+  text-align: center;
+}
+
+@media (max-width: 767px){
+.generics-container {
+  margin-top: 180px;
+  padding: 3rem 0;
+}
+}

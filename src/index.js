@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {CartProvider} from './store/CartProvider';
+import { BrowserRouter } from 'react-router-dom';
 /*
 React bootstrap Configuration
 */
@@ -11,9 +12,11 @@ import "../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <BrowserRouter>
   <CartProvider>
     <App />
   </CartProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

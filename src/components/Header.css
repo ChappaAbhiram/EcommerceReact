@@ -1,0 +1,94 @@
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background : transparent;
+    z-index: 90;
+    justify-content: center;
+    height:60px;
+     }
+  
+  .homepage-header {
+    height: 0.1px; /* Set your desired header height */
+  }
+  
+  .custom-navbar {
+    padding: 1rem 0;
+    justify-content: center;
+    position:fixed;
+    display: flex; /* Add this */
+  align-items: center; /* Add this */
+  width:100%;
+  }
+  .homepage-navbar{
+    padding: 1rem 0;
+    justify-content: space-between;
+    display:flex; 
+  }
+  
+  .nav-links {
+    /* align-items: center; */
+    display: flex;
+    align-items: center;
+  
+    /* Keep links in a single line regardless of screen size */
+    flex-wrap: nowrap; /* Add this */
+  
+    /* Add this rule for smaller screens */
+    @media (max-width: 767px) {
+       flex-direction: column;
+    }
+  }
+  .nav-link {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+  
+    /* Add this rule for smaller screens */
+    @media (max-width: 767px) {
+      margin: 0.5rem 0; /* Adjust margin for vertical spacing */
+    }
+  }
+  
+  .cart-button {
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 767px) {
+    .homepage-header {
+      height: 1px; /* Adjust header height for smaller screens */
+    }
+    .homepage-navbar{
+        /* padding: 1rem 0; */
+        justify-content: space-between;
+        display:flex;
+      }
+    .custom-navbar {
+      padding: 0.5rem 0;
+      display:flex;
+      position : fixed;
+      width : 100%;
+      align-items: center;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: nowrap; 
+    }
+  
+    .nav-link {
+      margin: 0.5rem 0;
+    }
+  
+    .cart-button {
+      float: right;
+      margin-top: 0.5rem;
+    }
+  }
+  
