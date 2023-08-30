@@ -19,16 +19,16 @@ const Head = () => {
     ctx.removefromcart(index);
   };
 
-  const isHomepage = location.pathname === '/';
+  const isStorepage = location.pathname === '/';
 
   return (
     <>
-      <div className={`${isHomepage ? 'homepage-header' : 'header'}`}>
+      <div className={`${isStorepage ? 'homepage-header' : 'header'}`}>
         <Navbar
           bg="dark"
           variant="dark"
           expand="lg"
-          className={`custom-navbar ${isHomepage ? 'homepage-navbar' : ''}`}
+          className={`custom-navbar ${isStorepage ? 'homepage-navbar' : ''}`}
         >
           <Container fluid>
             <Nav className="nav-links">
@@ -42,7 +42,7 @@ const Head = () => {
                 About
               </Nav.Link>
             </Nav>
-            {isHomepage && (
+            {isStorepage && (
               <Button onClick={toggleCart} className="cart-button">
                 Cart[{cartItems.length}]
               </Button>
@@ -50,7 +50,7 @@ const Head = () => {
           </Container>
         </Navbar>
       </div>
-      {isHomepage && isCartOpen && <Cart cartItems={cartItems} onRemove={removeFromCart} />}
+      {isStorepage && isCartOpen && <Cart cartItems={cartItems} onRemove={removeFromCart} />}
       {/* <Container
         fluid
         className="generics-container"

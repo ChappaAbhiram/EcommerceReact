@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import CartContext from '../store/CartProvider';
-
+import './cart.css';
 const Cart = (props) => {
   const ctx = React.useContext(CartContext);
+  const totalAmount = props.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   return (
-     <div style={{ position: 'fixed', zIndex: 100, right: '20px', top: '60px', overflowY: 'auto', maxHeight: '80vh', backgroundColor: 'white' }}>
+     <div className='cartstyle'>
       {props.cartItems.length > 0 && (
         <div>
           <h4>CART</h4>
@@ -36,6 +37,9 @@ const Cart = (props) => {
               ))}
             </tbody>
           </table>
+          <div className="total-amount" style={{marginTop:'20px',textAlign:'right',fontSize:'18px',color:'#333'}}>
+            <p>Total Amount: <span style={{fontWeight:'bold',color:'#ff5722'}}>${totalAmount.toFixed(2)}</span></p>
+          </div>
         </div>
       )}
     </div>

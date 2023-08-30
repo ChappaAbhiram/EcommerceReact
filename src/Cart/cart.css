@@ -1,0 +1,21 @@
+ .cartstyle{
+    position: fixed; 
+    z-index: 100;
+    right: 20px;
+    top: 60px;
+    overflow-y: auto; 
+    max-height: 80vh ;
+    background-color: white;
+ }
+ @media (max-width: 767px){
+    .cartstyle{
+        position:fixed;
+        top:120px;
+        right:20px;
+        overflow-y: auto; 
+        max-height: 80vh ;
+        background-color: white;
+        z-index:100;
+
+    }
+ }

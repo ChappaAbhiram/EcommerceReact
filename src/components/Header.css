@@ -8,10 +8,18 @@
     z-index: 90;
     justify-content: center;
     height:60px;
+    align-items : center;
      }
   
   .homepage-header {
-    height: 0.1px; /* Set your desired header height */
+    height: 0.1px;
+    z-index:90; 
+    position : fixed;
+    top:0;
+    left:0;
+    right:0;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .custom-navbar {
@@ -21,16 +29,23 @@
     display: flex; /* Add this */
   align-items: center; /* Add this */
   width:100%;
+  z-index:100;
   }
   .homepage-navbar{
     padding: 1rem 0;
     justify-content: space-between;
     display:flex; 
+    z-index : 100;
+    position:fixed;
+    align-items: center;
   }
   
   .nav-links {
     /* align-items: center; */
     display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content:center;
     align-items: center;
   
     /* Keep links in a single line regardless of screen size */
@@ -61,12 +76,14 @@
   /* Responsive Styles */
   @media (max-width: 767px) {
     .homepage-header {
-      height: 1px; /* Adjust header height for smaller screens */
+      height: 1px;
+      z-index: 90; /* Adjust header height for smaller screens */
     }
     .homepage-navbar{
         /* padding: 1rem 0; */
         justify-content: space-between;
         display:flex;
+        z-index: 90;
       }
     .custom-navbar {
       padding: 0.5rem 0;
@@ -74,6 +91,7 @@
       position : fixed;
       width : 100%;
       align-items: center;
+      justify-content: center;
     }
   
     .nav-links {
