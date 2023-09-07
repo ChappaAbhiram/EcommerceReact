@@ -5,6 +5,7 @@ import About from './RoutePages/About';
 import HomePage from './RoutePages/Home';
 import Store from './RoutePages/Store';
 import Header from './components/Header';
+import ContactUs from './RoutePages/ContactUs';
 import './App.css';
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/" element={<Store />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </Container>
     </div>

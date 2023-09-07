@@ -32,12 +32,12 @@ const Store = () => {
     },
   ];
   return (
-    <Container fluid>
+    <Container fluid style={{padding:'20px'}}>
       <Row className="justify-content-center">
         {productsArr.map((product, index) => (
-          <Col md={3} className="mb-4" key={index}>
-            <Card>
-              <Card.Img variant="top" src={product.imageUrl} />
+          <Col md={5} key={index}>
+            <Card style={{border : 'transparent',textAlign:'center',padding : '15px'}}>
+              <Card.Img variant="top" src={product.imageUrl} style={{ width: '200px', height: '200px',margin: '0 auto' }}/>
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>Price: ${product.price}</Card.Text>

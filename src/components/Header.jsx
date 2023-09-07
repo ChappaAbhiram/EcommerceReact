@@ -41,6 +41,9 @@ const Head = () => {
               <Nav.Link as={NavLink} to="/about" className="nav-link">
                 About
               </Nav.Link>
+              <Nav.Link as={NavLink} to="/contactus" className="nav-link">
+                Contact Us
+              </Nav.Link>
             </Nav>
             {isStorepage && (
               <Button onClick={toggleCart} className="cart-button">

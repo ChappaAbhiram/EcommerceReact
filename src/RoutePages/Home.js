@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Card,NavLink} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 const HomePage=()=>{
 const tourData = [
   { date: 'JUL 16', location: 'DETROIT, MI', venue: 'DTE ENERGY MUSIC THEATRE' },

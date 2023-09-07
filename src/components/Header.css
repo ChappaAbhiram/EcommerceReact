@@ -1,112 +1,93 @@
 /* Header Styles */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background : transparent;
-    z-index: 90;
-    justify-content: center;
-    height:60px;
-    align-items : center;
-     }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 90;
+  justify-content: center;
+  height: 60px;
+  align-items: center;
+}
+
+.homepage-header {
+  height: 0.1px;
+  z-index: 90;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-navbar {
+  padding: 1rem 0;
+  justify-content: center;
+  position: fixed;
+  display: flex; 
+  align-items: center; 
+  width: 100%;
+  z-index: 100;
+}
+
+.homepage-navbar {
+  padding: 1rem 0;
+  justify-content: space-between;
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  align-items: center;
+}
+
+.nav-links {
+  /* Keep links in a single line regardless of screen size */
+  flex-wrap: nowrap;
+}
+
+.nav-link {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.cart-button {
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
   .homepage-header {
-    height: 0.1px;
-    z-index:90; 
-    position : fixed;
-    top:0;
-    left:0;
-    right:0;
+    height: 1px;
+    z-index: 90; 
+  }
+  .homepage-navbar {
     justify-content: space-between;
-    align-items: center;
-  }
-  
-  .custom-navbar {
-    padding: 1rem 0;
-    justify-content: center;
-    position:fixed;
-    display: flex; /* Add this */
-  align-items: center; /* Add this */
-  width:100%;
-  z-index:100;
-  }
-  .homepage-navbar{
-    padding: 1rem 0;
-    justify-content: space-between;
-    display:flex; 
-    z-index : 100;
-    position:fixed;
-    align-items: center;
-  }
-  
-  .nav-links {
-    /* align-items: center; */
     display: flex;
-    align-items: center;
-    flex-grow: 1;
-    justify-content:center;
-    align-items: center;
-  
-    /* Keep links in a single line regardless of screen size */
-    flex-wrap: nowrap; /* Add this */
-  
-    /* Add this rule for smaller screens */
-    @media (max-width: 767px) {
-       flex-direction: column;
-    }
+    z-index: 90;
   }
+  .custom-navbar {
+    padding: 0.5rem 0;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    flex-direction: row; 
+  }
+
   .nav-link {
-    color: white;
-    margin: 0 1rem;
-    text-decoration: none;
-  
-    /* Add this rule for smaller screens */
-    @media (max-width: 767px) {
-      margin: 0.5rem 0; /* Adjust margin for vertical spacing */
-    }
+    margin: 0; /* Remove margin to keep links in a single row */
   }
-  
+
   .cart-button {
-    color: white;
-    border: none;
-    cursor: pointer;
+    float: right;
+    margin-top: 0.5rem;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 767px) {
-    .homepage-header {
-      height: 1px;
-      z-index: 90; /* Adjust header height for smaller screens */
-    }
-    .homepage-navbar{
-        /* padding: 1rem 0; */
-        justify-content: space-between;
-        display:flex;
-        z-index: 90;
-      }
-    .custom-navbar {
-      padding: 0.5rem 0;
-      display:flex;
-      position : fixed;
-      width : 100%;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .nav-links {
-      flex-direction: column;
-      align-items: center;
-      flex-wrap: nowrap; 
-    }
-  
-    .nav-link {
-      margin: 0.5rem 0;
-    }
-  
-    .cart-button {
-      float: right;
-      margin-top: 0.5rem;
-    }
-  }
-  
+}

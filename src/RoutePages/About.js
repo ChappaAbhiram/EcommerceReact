@@ -7,7 +7,7 @@ const About = () => {
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <div style={{ flex: 1, paddingRight: '2rem' }}>
-          <img src="https://f4.bcbits.com/img/a3988505973_2.jpg" alt="About Us" style={{ maxWidth: '100%' }} />
+          <img src="https://f4.bcbits.com/img/0008398621_10.jpg" alt="About Us" style={{ maxWidth: '100%' }} />
         </div>
         <div style={{ flex: 2 }}>
           <h1>About Us</h1>
