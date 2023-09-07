@@ -1,11 +1,13 @@
 import React from 'react';
 import { Container,Button } from 'react-bootstrap';
 import { Route, Routes,useLocation } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import About from './RoutePages/About';
 import HomePage from './RoutePages/Home';
 import Store from './RoutePages/Store';
 import Header from './components/Header';
 import ContactUs from './RoutePages/ContactUs';
+import ProductDetails from './RoutePages/ProductDetails';
 import './App.css';
 function App() {
   const location = useLocation();
@@ -20,9 +22,11 @@ function App() {
       </Container>
       <Container fluid>
         <Routes>
+          <Route path="/" element={<Navigate to="/products" />} />
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/" element={<Store />} />
+          <Route path="/products" element={<Store />} exact></Route>
+          <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </Container>

@@ -19,7 +19,7 @@ const Head = () => {
     ctx.removefromcart(index);
   };
 
-  const isStorepage = location.pathname === '/';
+  const isStorepage = location.pathname === '/products';
 
   return (
     <>
@@ -35,7 +35,7 @@ const Head = () => {
               <Nav.Link as={NavLink} to="/home" className="nav-link">
                 Home
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/" className="nav-link">
+              <Nav.Link as={NavLink} to="/products" className="nav-link">
                 Store
               </Nav.Link>
               <Nav.Link as={NavLink} to="/about" className="nav-link">

@@ -1,0 +1,22 @@
+.zoom-container {
+    max-width: 100%; /* Adjust the maximum width as needed */
+    max-height: 400px; /* Adjust the maximum height as needed */
+    overflow: auto;
+    text-align: center;
+    position: relative;
+  }
+  
+  .zoom-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+  }
+  .zoom-image:hover {
+    transform: scale(1.5); /* Adjust the scale factor as needed for desired zoom level */
+  }
+  
