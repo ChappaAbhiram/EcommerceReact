@@ -1,17 +1,21 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Container,Button } from 'react-bootstrap';
-import { Route, Routes,useLocation } from 'react-router-dom';
+import { Route, Routes,useLocation ,useNavigate} from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
+import AuthForm from './components/Authrization/AuthForm';
 import About from './RoutePages/About';
 import HomePage from './RoutePages/Home';
 import Store from './RoutePages/Store';
 import Header from './components/Header';
 import ContactUs from './RoutePages/ContactUs';
 import ProductDetails from './RoutePages/ProductDetails';
+import AuthContext from './store/AuthContext';
 import './App.css';
 function App() {
+  const authctx = useContext(AuthContext);
   const location = useLocation();
   const isHomepage= location.pathname ==='/home';
+  const isLoggedIn = authctx.isLoggedIn;
   return (
     <div>
       <Header />
@@ -25,7 +29,8 @@ function App() {
           <Route path="/" element={<Navigate to="/products" />} />
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/products" element={<Store />} exact></Route>
+          {isLoggedIn && (<Route path="/products" element={<Store />} exact></Route>)}
+          <Route path="/auth" element={<AuthForm />} exact></Route>
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>

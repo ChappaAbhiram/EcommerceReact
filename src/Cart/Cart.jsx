@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import CartContext from '../store/CartProvider';
 import './cart.css';
 const Cart = (props) => {
-  const ctx = React.useContext(CartContext);
+  const ctx = useContext(CartContext);
   const totalAmount = props.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   return (
      <div className='cartstyle'>

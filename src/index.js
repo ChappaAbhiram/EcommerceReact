@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {CartProvider} from './store/CartProvider';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthContextProvider } from './store/AuthContext';
 /*
 React bootstrap Configuration
 */
@@ -13,9 +14,11 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+  <AuthContextProvider>
   <CartProvider>
     <App />
   </CartProvider>
+  </AuthContextProvider>
   </BrowserRouter>
 );
 

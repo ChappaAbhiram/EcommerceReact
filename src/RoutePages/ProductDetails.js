@@ -52,8 +52,9 @@ const productsArr = [
 ];
 
 const ProductDetails = () => {
-    const { productId } = useParams();
-    const product = productsArr.find((item) => item.id === productId);
+    const params = useParams();
+    const product = productsArr.find((item) => item.id === params.productId);
+    //params.productId this productId is the path that we have given in the App.js file in the routes.
   
     if (!product) {
       // Handle the case when the product is not found (e.g., show an error message)

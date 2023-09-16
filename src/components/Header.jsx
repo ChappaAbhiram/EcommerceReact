@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Navbar, Container, Button, Nav } from 'react-bootstrap';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation,useNavigate } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import CartContext from '../store/CartProvider';
+import AuthContext from '../store/AuthContext';
 import './Header.css'; // Import custom CSS for the header
 
 const Head = () => {
@@ -10,6 +11,15 @@ const Head = () => {
   const ctx = useContext(CartContext);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const cartItems = ctx.Cart;
+  const authctx = useContext(AuthContext);
+  const isLoggedIn = authctx.isLoggedIn;
+  const history = useNavigate();
+
+  const logoutHandler = (event)=>{
+    event.preventDefault();
+    authctx.logout();
+   history('/auth');
+   }
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -35,17 +45,31 @@ const Head = () => {
               <Nav.Link as={NavLink} to="/home" className="nav-link">
                 Home
               </Nav.Link>
+              {isLoggedIn && (
               <Nav.Link as={NavLink} to="/products" className="nav-link">
                 Store
               </Nav.Link>
+              )}
               <Nav.Link as={NavLink} to="/about" className="nav-link">
                 About
               </Nav.Link>
+              {!isLoggedIn && (
+              <Nav.Link as={NavLink} to="/auth" className="nav-link">
+                Login
+              </Nav.Link>
+              )}
+              {isLoggedIn && (
+                <li>
+              <button onClick={logoutHandler} className="nav-link">
+                Logout
+              </button>
+              </li>
+              )}
               <Nav.Link as={NavLink} to="/contactus" className="nav-link">
                 Contact Us
               </Nav.Link>
             </Nav>
-            {isStorepage && (
+            {isLoggedIn && isStorepage && (
               <Button onClick={toggleCart} className="cart-button">
                 Cart[{cartItems.length}]
               </Button>
