@@ -29,7 +29,7 @@ function App() {
           <Route path="/" element={<Navigate to="/products" />} />
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<HomePage />} />
-          {isLoggedIn && (<Route path="/products" element={<Store />} exact></Route>)}
+          <Route path="/products" element={<Store />} exact></Route>
           <Route path="/auth" element={<AuthForm />} exact></Route>
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/contactus" element={<ContactUs />} />

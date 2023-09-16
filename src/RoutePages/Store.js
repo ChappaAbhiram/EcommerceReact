@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import CartContext from "../store/CartProvider"; // Update the import path
+import AuthContext from "../store/AuthContext";
 
 const Store = () => {
   const ctx = useContext(CartContext);
-
+  const authctx = useContext(AuthContext);
+  const isLoggedIn = authctx.isLoggedIn;
   const addToCart = (product) => {
     ctx.addtocart(product);
   };
@@ -38,6 +40,7 @@ const Store = () => {
   ];
   return (
     <Container fluid style={{padding:'20px'}}>
+      {isLoggedIn && (
       <Row className="justify-content-center">
         {productsArr.map((product, index) => (
           <Col md={5} key={index}>
@@ -59,6 +62,8 @@ const Store = () => {
           </Col>
         ))}
       </Row>
+      )}
+      {!isLoggedIn && <Navigate to="/auth" />}
     </Container>
   );
 };
