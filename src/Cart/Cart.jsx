@@ -1,13 +1,20 @@
-import React,{useContext} from 'react';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Card, Button } from 'react-bootstrap';
 import CartContext from '../store/CartProvider';
 import './cart.css';
+
 const Cart = (props) => {
   const ctx = useContext(CartContext);
-  const totalAmount = props.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+ const cartItems = ctx.cart;
+  // Function to fetch cart items from the backend
+  
+  // Calculate the total amount based on cartItems
+  const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
-     <div className='cartstyle'>
-      {props.cartItems.length > 0 && (
+    <div className="cartstyle">
+      {cartItems.length > 0 && (
         <div>
           <h4>CART</h4>
           <table>
@@ -20,8 +27,8 @@ const Cart = (props) => {
               </tr>
             </thead>
             <tbody>
-              {props.cartItems.map((item, index) => (
-                <tr key={index}>
+              {cartItems.map((item) => (
+                <tr key={item._id}>
                   <td>
                     <Card.Img src={item.imageUrl} alt={item.title} style={{ width: '50px' }} />
                   </td>
@@ -29,7 +36,7 @@ const Cart = (props) => {
                   <td style={{ textAlign: 'center' }}>{item.quantity}</td>
                   <td>${item.price}</td>
                   <td>
-                    <Button variant="danger" onClick={() => props.onRemove(index)}>
+                    <Button variant="danger" onClick={() => props.onRemove(item._id)}>
                       REMOVE
                     </Button>
                   </td>
@@ -37,12 +44,19 @@ const Cart = (props) => {
               ))}
             </tbody>
           </table>
-          <div className="total-amount" style={{marginTop:'20px',textAlign:'right',fontSize:'18px',color:'#333'}}>
-            <p>Total Amount: <span style={{fontWeight:'bold',color:'#ff5722'}}>${totalAmount.toFixed(2)}</span></p>
+          <div
+            className="total-amount"
+            style={{ marginTop: '20px', textAlign: 'right', fontSize: '18px', color: '#333' }}
+          >
+            <p>
+              Total Amount: <span style={{ fontWeight: 'bold', color: '#ff5722' }}>${totalAmount.toFixed(2)}</span>
+            </p>
           </div>
         </div>
       )}
     </div>
   );
 };
+
 export default Cart;
+

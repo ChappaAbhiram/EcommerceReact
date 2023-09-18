@@ -17,7 +17,7 @@ function App() {
   const isHomepage= location.pathname ==='/home';
   const isLoggedIn = authctx.isLoggedIn;
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <Container fluid className="generics-container">
         <h1>THE GENERICS</h1>
@@ -35,7 +35,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </Container>
-    </div>
+    </React.Fragment>
   );
 }
 

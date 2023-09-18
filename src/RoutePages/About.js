@@ -3,11 +3,14 @@ import { Container } from 'react-bootstrap';
 
 const About = () => {
   return (
-    <Container
-    >
+    <Container>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <div style={{ flex: 1, paddingRight: '2rem' }}>
-          <img src="https://f4.bcbits.com/img/0008398621_10.jpg" alt="About Us" style={{ maxWidth: '100%' }} />
+          <img
+            src="https://f4.bcbits.com/img/0008398621_10.jpg"
+            alt="About Us"
+            style={{ maxWidth: '100%'}} // Adjust the minWidth as needed
+          />
         </div>
         <div style={{ flex: 2 }}>
           <h1>About Us</h1>

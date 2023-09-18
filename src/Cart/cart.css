@@ -10,8 +10,9 @@
  @media (max-width: 767px){
     .cartstyle{
         position:fixed;
-        top:120px;
+        top:140px;
         right:20px;
+        left : 10px;
         overflow-y: auto; 
         max-height: 80vh ;
         background-color: white;

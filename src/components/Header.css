@@ -1,93 +1,47 @@
 /* Header Styles */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: transparent;
-  z-index: 90;
-  justify-content: center;
-  height: 60px;
-  align-items: center;
-}
-
 .homepage-header {
-  height: 0.1px;
-  z-index: 90;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  justify-content: space-between;
-  align-items: center;
+  background-color: black; /* Set your desired background color */
+  color: #fff; /* Set your desired text color */
+  padding: 15px;
+  z-index: 100; /* Ensure the header is above other content */
 }
-
 .custom-navbar {
-  padding: 1rem 0;
-  justify-content: center;
-  position: fixed;
-  display: flex; 
-  align-items: center; 
-  width: 100%;
-  z-index: 100;
+  background: #333; /* Change this to your desired background color */
 }
-
-.homepage-navbar {
-  padding: 1rem 0;
-  justify-content: space-between;
-  display: flex;
-  z-index: 100;
-  position: fixed;
-  align-items: center;
-}
-
-.nav-links {
-  /* Keep links in a single line regardless of screen size */
-  flex-wrap: nowrap;
-}
-
-.nav-link {
-  color: white;
-  margin: 0 1rem;
+.header .navbar-nav .nav-link {
+  color: #fff;
+  padding: 0 15px;
   text-decoration: none;
+  z-index: 100;
+  background-color: black;
+  /* transition: color 0.3s ease; */
 }
 
-.cart-button {
-  color: white;
-  border: none;
-  cursor: pointer;
+.header .navbar-nav .nav-link:hover {
+  text-decoration: none;
+  background-color: black; 
+  flex-wrap : nowrap;
 }
 
 /* Responsive Styles */
 @media (max-width: 767px) {
-  .homepage-header {
-    height: 1px;
-    z-index: 90; 
-  }
-  .homepage-navbar {
-    justify-content: space-between;
-    display: flex;
-    z-index: 90;
-  }
-  .custom-navbar {
-    padding: 0.5rem 0;
-    display: flex;
-    position: fixed;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+  .header .navbar-nav {
+    flex-direction: column;
   }
 
-  .nav-links {
-    flex-direction: row; 
+  .header .navbar-nav .nav-link {
+    padding: 10px 0;
+    text-align: center;
+    flex-wrap: nowrap;
   }
 
-  .nav-link {
-    margin: 0; /* Remove margin to keep links in a single row */
+  .header .cart-button {
+    margin-top: 20px;
   }
 
-  .cart-button {
-    float: right;
-    margin-top: 0.5rem;
-  }
 }
+

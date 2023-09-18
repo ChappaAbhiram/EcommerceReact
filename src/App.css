@@ -12,11 +12,12 @@
   padding: 5rem 0;
   background-color: lightgray;
   text-align: center;
+  z-index : 90
 }
 
-@media (max-width: 767px){
+@media (max-width: 991px){
 .generics-container {
-  margin-top: 180px;
+  margin-top: 250px;
   padding: 3rem 0;
 }
 }
