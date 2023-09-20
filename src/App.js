@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,lazy,Suspense} from 'react';
 import { Container,Button } from 'react-bootstrap';
 import { Route, Routes,useLocation ,useNavigate} from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
@@ -8,7 +8,7 @@ import HomePage from './RoutePages/Home';
 import Store from './RoutePages/Store';
 import Header from './components/Header';
 import ContactUs from './RoutePages/ContactUs';
-import ProductDetails from './RoutePages/ProductDetails';
+// import ProductDetails from './RoutePages/ProductDetails';
 import AuthContext from './store/AuthContext';
 import './App.css';
 function App() {
@@ -16,6 +16,8 @@ function App() {
   const location = useLocation();
   const isHomepage= location.pathname ==='/home';
   const isLoggedIn = authctx.isLoggedIn;
+  //Implementing lazy loading for Product Details
+  const ProductDetails = lazy(()=>import('./RoutePages/ProductDetails'));
   return (
     <React.Fragment>
       <Header />
@@ -31,7 +33,7 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/products" element={<Store />} exact></Route>
           <Route path="/auth" element={<AuthForm />} exact></Route>
-          <Route path="/products/:productId" element={<ProductDetails />} />
+          <Route path="/products/:productId" element={<Suspense fallback={<p>Loading...</p>}><ProductDetails /></Suspense>} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </Container>

@@ -1,12 +1,15 @@
 import React,{useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 const AuthContext = React.createContext({
 token : '',
 isLoggedIn : false,
 login : (token )=>{},
 logout : (token)=>{},
+signup : ()=>{},
 user : ''
 });
 export const AuthContextProvider = (props)=>{
+    const history = useNavigate();
     const initialToken = localStorage.getItem('token');
     const initemail = localStorage.getItem('email');
     const [token,setToken] = useState(initialToken);
@@ -17,6 +20,9 @@ export const AuthContextProvider = (props)=>{
         localStorage.setItem('email',email);
         setToken(token);
         setEmail(email);
+    }
+    const signuphandler =()=>{
+        history('/auth');
     }
     const logoutHandler = ()=>{
         setToken(null);
@@ -29,7 +35,8 @@ export const AuthContextProvider = (props)=>{
         isLoggedIn : userisLoggedIn,
         login : loginHandler,
         logout :logoutHandler,
-        user : email
+        user : email,
+        signup : signuphandler,
     }
     return <AuthContext.Provider value={contextValue}>
         {props.children}

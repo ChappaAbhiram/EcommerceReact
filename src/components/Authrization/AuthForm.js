@@ -54,9 +54,13 @@ const AuthForm = () => {
      });
     }
   }).then(data =>{
-    console.log(data);
-    authctx.login(data.idToken,data.email);
-    history('/');
+    if (isLogin) {
+      console.log(data);
+      authctx.login(data.idToken,data.email);
+      history('/');
+    } else {
+      authctx.signup();
+    }
   })
   .catch(err=>{
     alert(err.message);

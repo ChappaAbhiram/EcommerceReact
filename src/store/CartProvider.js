@@ -17,8 +17,7 @@ export const CartProvider = (props) => {
   const fetchCartData = async () => {
     if(user){
     const sanitizedEmail = user.replace(/[.@]/g, ''); // Remove '.' and '@' from email
-    const cartApiUrl = `https://crudcrud.com/api/9498cd03421f4ff5bdff45fd2091bb14/cart${sanitizedEmail}`;
-
+    const cartApiUrl = `https://crudcrud.com/api/04b4536f6bd240169f10fa7f98c6b393/cart${sanitizedEmail}`;
     try {
       const response = await fetch(cartApiUrl, {
         method: 'GET',
@@ -52,7 +51,7 @@ export const CartProvider = (props) => {
   
     if (existingProduct) {
   
-      const cartApiUrl = `https://crudcrud.com/api/9498cd03421f4ff5bdff45fd2091bb14/cart${sanitizedEmail}/${existingProduct._id}`;
+      const cartApiUrl = `https://crudcrud.com/api/04b4536f6bd240169f10fa7f98c6b393/cart${sanitizedEmail}/${existingProduct._id}`;
   
       // Send a PUT request to update the quantity of the existing product
       fetch(cartApiUrl, {
@@ -90,9 +89,9 @@ export const CartProvider = (props) => {
     } else {
       // If the product is not in the cart, add it with a quantity of 1
       const updatedProduct = { ...product, quantity: 1 };
-      const cartApiUrl = `https://crudcrud.com/api/9498cd03421f4ff5bdff45fd2091bb14/cart${sanitizedEmail}`;
+      const cartApiUrl = `https://crudcrud.com/api/04b4536f6bd240169f10fa7f98c6b393/cart${sanitizedEmail}`;
   
-      // Send a POST request to add the product to the cart
+      // Send a POST request to add the product to the cartfir
       fetch(cartApiUrl, {
         method: 'POST',
         headers: {
@@ -126,7 +125,7 @@ export const CartProvider = (props) => {
   const removeFromCart = (id) => {
     console.log(id);
     const sanitizedEmail = user.replace(/[.@]/g, ''); // Remove '.' and '@' from email
-    const cartApiUrl = `https://crudcrud.com/api/9498cd03421f4ff5bdff45fd2091bb14/cart${sanitizedEmail}/${id}`;
+    const cartApiUrl = `https://crudcrud.com/api/04b4536f6bd240169f10fa7f98c6b393/cart${sanitizedEmail}/${id}`;
     fetch(cartApiUrl ,{
       method: 'DELETE',
     })
